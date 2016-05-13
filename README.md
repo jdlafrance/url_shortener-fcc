@@ -1,1 +1,1 @@
-This is a header parser built in order to complete a challenge on FCC. Not yet on heroku.
+This is a url shortener microservice built for FCC basejump challenges.
