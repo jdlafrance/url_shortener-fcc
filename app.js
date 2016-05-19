@@ -62,4 +62,4 @@ app.get('/', function(req,res, next){
 //db.close();
 });
 
-app.listen(8080);
+app.listen(process.env.PORT);
