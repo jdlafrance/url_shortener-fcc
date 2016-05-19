@@ -21,7 +21,7 @@ short.connect(dbdist);
     throw new Error(error);
 });
 
-app.get('/?', function(req,res, next){
+app.get('/', function(req,res, next){
     var URL = url.parse(req.url).query;
     collection.find({short_url: URL}).toArray(function(err, docs){
         if (err) return;
