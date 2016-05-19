@@ -22,7 +22,7 @@ short.connect(dbdist);
 });
 
 app.get('/', function(req,res, next){
-    var URL = url.parse(req.url).query;
+    var URL = '?' + url.parse(req.url).query;
     collection.find({short_url: URL}).toArray(function(err, docs){
         if (err) return;
       if (docs[0] != undefined){
@@ -30,7 +30,7 @@ app.get('/', function(req,res, next){
           //db.close();
           next();
       } else if (regExp.exec(URL) != null){
-    var URL1 = URL.replace('https://', '').replace('http://', '');
+    var URL1 = URL.replace('?https://', '').replace('?http://', '').replace('?', '');
  var shortURLPromise = short.generate({URL : URL1});
  shortURLPromise.then(function(mongodbDoc){
      short.retrieve(mongodbDoc.hash).then(function(result){
